@@ -62,3 +62,4 @@ Produces production version of library under the `build` folder.
 ## Example library built with this starter kit
 
 https://github.com/UdiliaInc/react-under-construction
+# react-calendar

@@ -1,7 +1,7 @@
 {
-  "name": "create-react-library",
-  "version": "1.0.0",
-  "description": "React NPM library starter kit based on Facebook's create react app",
+  "name": "react-calendar-cool",
+  "version": "1.0.1",
+  "description": "calendar component use in React",
   "main": "build/index.js",
   "scripts": {
     "start": "node scripts/start.js",
@@ -10,13 +10,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/udiliaInc/create-react-library.git"
+    "url": "git+https://github.com/chenmengyang/react-calendar.git"
   },
-  "author": "Dimitri Mikadze <dimitri@udilia.com>",
-  "bugs": {
-    "url": "https://github.com/udiliaInc/create-react-library/issues"
-  },
-  "homepage": "https://github.com/udiliaInc/create-react-library#readme",
+  "author": "Mengyang Chen <chenmengyang12@gmail.com>",
+  "homepage": "https://github.com/chenmengyang/react-calendar#readme",
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "7.1.2",

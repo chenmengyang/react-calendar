@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="41px" viewBox="0 0 60 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47 (45396) - http://www.bohemiancoding.com/sketch -->
+    <title>arrow right</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Tulossivut" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="levi_tulokset_majoitus_no_date" transform="translate(-754.000000, -136.000000)">
+            <g id="date_active_no_selection" transform="translate(120.000000, 25.000000)">
+                <g id="range" transform="translate(320.000000, 39.000000)">
+                    <g id="arrival">
+                        <g id="datepicker" transform="translate(0.000000, 50.000000)">
+                            <g id="date" transform="translate(25.000000, 22.000000)">
+                                <g id="month" transform="translate(0.000000, 0.874327)">
+                                    <g id="arrow-right" transform="translate(289.000000, 0.000000)">
+                                        <rect id="Rectangle-50-Copy-30" fill="#FFFFFF" x="0" y="0" width="60" height="40"></rect>
+                                        <polyline id="Rectangle" stroke="#CEE4F2" stroke-width="2" transform="translate(35.000000, 20.196741) rotate(-225.000000) translate(-35.000000, -20.196741) " points="30 25.1967411 30 15.1967411 30 15.1967411 40 15.1967411"></polyline>
+                                        <path d="M41,20.1256732 L17,20.1256732" id="Line" stroke="#CEE4F2" stroke-width="2"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

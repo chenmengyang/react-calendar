@@ -1,8 +1,8 @@
-import Example from './components/Example';
-import SecondExample from './components/SecondExample';
+import Calendar from './components/Calendar';
+import RangeCalendar from './components/RangeCalendar';
 
-export default Example;
 export {
-  SecondExample
+  Calendar,
+  RangeCalendar,
 };
 
