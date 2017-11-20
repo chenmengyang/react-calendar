@@ -114,10 +114,10 @@ class Calendar extends Component {
 
   // set the current hoving element
   setHoverDate(e) {
-    let day = e.target.firstChild.nodeValue;
-    this.setState({
-      hoverDate: day,
-    });
+    // let day = e.target.firstChild.nodeValue;
+    // this.setState({
+    //   hoverDate: day,
+    // });
   }
 
   getMonthName(num) {
@@ -185,20 +185,20 @@ class Calendar extends Component {
         </div>
         <div className="days">
           <div className='day-list'>
-            {this.getDays(this.state.month, this.state.year).pre.map((day, index) => <DayElement {...this.state} extraClass='pre' key={`pre_${day}`} onHover={this.setHoverDate} day={day} /> )}
+            {this.getDays(this.state.month, this.state.year).pre.map((day, index) => <DayElement {...this.state} extraClass='pre' key={`pre_${day}`} day={day} /> )}
             {this.getDays(this.state.month, this.state.year).current.map((day, index) => {
               const activeDate = this.state.activeDate;
               const today = new Date();
               let extraClass = '';
               // if smaller than today, render a before li
               if (this.state.year===today.getFullYear() && this.state.month===today.getMonth() && day<today.getDate()) {
-                return <DayElement {...this.state} extraClass='before' key={`current${day}`} onHover={this.setHoverDate} day={day} />
+                return <DayElement {...this.state} extraClass='before' key={`current${day}`} day={day} />
               } else if (this.state.year===activeDate.getFullYear() && this.state.month===activeDate.getMonth() && day===activeDate.getDate()) {
                 extraClass += 'active';
               }
-              return <DayElement {...this.state} extraClass={`current ${extraClass}`} key={`current${day}`} onHover={this.setHoverDate} onClick={this.onSelectDate} day={day} />
+              return <DayElement {...this.state} extraClass={`current ${extraClass}`} key={`current${day}`} onClick={this.onSelectDate} day={day} />
             })}
-            {this.getDays(this.state.month, this.state.year).next.map((day, index) => <DayElement extraClass='next' key={`next${day}`} onHover={this.setHoverDate} day={day} />)}
+            {this.getDays(this.state.month, this.state.year).next.map((day, index) => <DayElement extraClass='next' key={`next${day}`} day={day} />)}
           </div>
         </div>
       </div>

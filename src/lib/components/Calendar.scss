@@ -1,99 +1,96 @@
-@media only screen and (min-width: 992px) {
-    div.calendar {
+div.calendar {
+    display: inline-block;
+    font-size: 10px;
+    min-height: 340px;
+    width: 340px;
+    div.calendar-head {
+        margin-top: 31px;
+        margin-bottom: 17px;
+        height: 22px;
+        position: relative;
+        div.mon {
         display: inline-block;
-        border: 1px solid grey;
-        font-size: 10px;
-        min-height: 340px;
-        width: 340px;
-        div.calendar-head {
-          margin-top: 31px;
-          margin-bottom: 17px;
-          height: 22px;
-          position: relative;
-          div.mon {
-            display: inline-block;
+        position: absolute;
+        letter-spacing: 1px;
+        line-height: 22px;
+        font-size: 1.8em;
+        text-align: center;
+        color: #0092C8;
+        text-transform: uppercase;
+        left: 50%;
+        transform: translateX(-50%);
+        }
+        div.arrow {
             position: absolute;
-            letter-spacing: 1px;
-            line-height: 22px;
-            font-size: 1.8em;
-            text-align: center;
-            color: #0092C8;
-            text-transform: uppercase;
-            left: 50%;
-            transform: translateX(-50%);
-          }
-          div.arrow {
-              position: absolute;
-              display: inline-block;
-              cursor: pointer;
-              background-position: center;
-              width: 60px;
-              height: 100%;
-              &.left {
-                left: 10px;
-                bottom: 0;
-                transform: rotate(180deg);
-              }
-              &.right {
-                right: 10px;
-                bottom: 0;
-              }
-          }
+            display: inline-block;
+            cursor: pointer;
+            background-position: center;
+            width: 60px;
+            height: 100%;
+            &.left {
+            left: 10px;
+            bottom: 0;
+            transform: rotate(180deg);
+            }
+            &.right {
+            right: 10px;
+            bottom: 0;
+            }
         }
-        p.title {
-            letter-spacing: 2px;
-            line-height: 11px;
-            text-transform: uppercase;
-            color: #004B88;
-            font-size: 1em;
-            width: 100%;
-            text-align: left;
-            padding-left: 40px;
-            margin-top: 40px;
-        }
-        div.calendar-weekdays {
-            color: #0092C8;
+    }
+    p.title {
+        letter-spacing: 2px;
+        line-height: 11px;
+        text-transform: uppercase;
+        color: #004B88;
+        font-size: 1em;
+        width: 100%;
+        text-align: left;
+        padding-left: 40px;
+        margin-top: 40px;
+    }
+    div.calendar-weekdays {
+        color: #0092C8;
+        height: 40px;
+    }
+    div.day-list {
+        width: 100%;
+        font-size: 1.4em;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-content: center;
+        li {
+            display: inline-block;
+            width: calc(100% * (1/7));
             height: 40px;
-        }
-        div.day-list {
-            width: 100%;
-            font-size: 1.4em;
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: space-around;
-            align-content: center;
-            li {
+            line-height: 40px;
+            text-align: center;
+            span {
+                cursor: pointer;
                 display: inline-block;
-                width: calc(100% * (1/7));
+                width: 40px;
                 height: 40px;
-                line-height: 40px;
-                text-align: center;
-                span {
-                    cursor: pointer;
-                    display: inline-block;
-                    width: 40px;
-                    height: 40px;
-                    &.hovering {
-                      background-color: #ABD5E4;
-                      border-radius: 50%;
-                      color: white;
-                    }
+                &.hovering {
+                    background-color: #ABD5E4;
+                    border-radius: 50%;
+                    color: white;
                 }
             }
         }
-        div.days {
-            div.day-list {
-                li {
-                    color: #4B4D50;
-                    &.pre, &.next, &.before {
-                        color: #ABD5E4;
-                    }
-                    &.active {
-                        span {
-                            border-radius: 50%;
-                            background-color: #0092C8;
-                            color: white;
-                        }
+    }
+    div.days {
+        div.day-list {
+            li {
+                color: #4B4D50;
+                &.pre, &.next, &.before {
+                    color: #ABD5E4;
+                }
+                &.active, &.from, &.to {
+                    span {
+                        border-radius: 50%;
+                        background-color: #0092C8;
+                        color: white;
                     }
                 }
             }
