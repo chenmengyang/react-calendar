@@ -23,7 +23,6 @@
             transform: translateX(-50%);
           }
           div.arrow {
-            //   border: 1px solid;
               position: absolute;
               display: inline-block;
               cursor: pointer;
@@ -57,10 +56,8 @@
             height: 40px;
         }
         div.day-list {
-            // list-style: none;
             width: 100%;
             font-size: 1.4em;
-            // margin: auto;
             display: flex;
             flex-flow: row wrap;
             justify-content: space-around;
@@ -71,32 +68,45 @@
                 height: 40px;
                 line-height: 40px;
                 text-align: center;
+                span {
+                    cursor: pointer;
+                    display: inline-block;
+                    width: 40px;
+                    height: 40px;
+                    &.hovering {
+                      background-color: #ABD5E4;
+                      border-radius: 50%;
+                      color: white;
+                    }
+                }
             }
         }
         div.days {
             div.day-list {
                 li {
-                    cursor: pointer;
                     color: #4B4D50;
-                    &.pre, &.next {
+                    &.pre, &.next, &.before {
                         color: #ABD5E4;
                     }
-                    &.today {
-                        border-radius: 50%;
-                        background-color: #E9F6FB;
+                    &.active {
+                        span {
+                            border-radius: 50%;
+                            background-color: #0092C8;
+                            color: white;
+                        }
                     }
                 }
             }
         }
     }
-    }
+}
     
-    @media only screen and (min-width: 1200px) {
-        div.calendar {
-            div.calendar-head {
-              div.mon {
-                font-size: 2.4em;
-              }
+@media only screen and (min-width: 1200px) {
+    div.calendar {
+        div.calendar-head {
+            div.mon {
+            font-size: 1.9em;
             }
         }
     }
+}

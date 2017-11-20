@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import arrow_light from '../../assets/icon/arrow_light.svg'
 import arrow_dark from '../../assets/icon/arrow_dark.svg'
+import DayElement from './DayElement';
 import './Calendar.scss'
 
 class Calendar extends Component {
   static propTypes = {
     title: PropTypes.string,
     onDateSelect: PropTypes.func.isRequired,
-    // onClose: PropTypes.func,
     type: PropTypes.string,
   }
 
@@ -19,14 +19,11 @@ class Calendar extends Component {
     this.getDays = this.getDays.bind(this);
     this.onSelectDate = this.onSelectDate.bind(this);
     this.isCurrentMon = this.isCurrentMon.bind(this);
+    this.setHoverDate = this.setHoverDate.bind(this);
     this.state = {
       year: 0,
       month: 0,
-      days: {
-        pre: [],
-        current: [],
-        next: [],
-      },
+      activeDate: new Date(),
     }
   }
 
@@ -34,12 +31,13 @@ class Calendar extends Component {
     const d = new Date();
     const year = d.getFullYear();
     const month = d.getMonth();
+    const activeDate = new Date();
     const numofDays = (new Date(year, month, 0)).getDate();
     const days = this.getDays(month, year);
     this.setState({
       year,
       month,
-      days,
+      activeDate,
     });
   }
 
@@ -47,12 +45,12 @@ class Calendar extends Component {
   getDays(currentMonth, currentYear) {
     const lastOflast = (new Date(currentYear, currentMonth, 0)).getDate();
     const numofDays = (new Date(currentYear, currentMonth+1, 0)).getDate();
-    // pre-month days show on calendar  
+    // pre-month days show on calendar, can hide if needed
     let preDays = (new Date(currentYear, currentMonth, 1)).getDay()-1;
     if (preDays<0) {
       preDays = 6;
     }
-    // next-month days show on calendar
+    // next-month days show on calendar, can hide if needed
     let nextDays = 7 - (new Date(currentYear, currentMonth+1, 0)).getDay();
     if (nextDays === 7) {
       nextDays = 0;
@@ -83,12 +81,10 @@ class Calendar extends Component {
         this.setState((prevState, props) => ({
           year: prevState.year - 1,
           month: 11,
-          days: this.getDays(11, prevState.year - 1),
         }));
       } else {
         this.setState((prevState, props) => ({
           month: prevState.month - 1,
-          days: this.getDays(prevState.month - 1, prevState.year),
         }));
       }
     }
@@ -99,12 +95,10 @@ class Calendar extends Component {
       this.setState((prevState, props) => ({
         year: prevState.year + 1,
         month: 0,
-        days: this.getDays(0, prevState.year + 1),
       }));
     } else {
       this.setState((prevState, props) => ({
         month: prevState.month + 1,
-        days: this.getDays(prevState.month + 1, prevState.year),
       }));
     }
   }
@@ -112,10 +106,18 @@ class Calendar extends Component {
   onSelectDate(e) {
     let day = e.target.firstChild.nodeValue;
     const d = day + '.' + (this.state.month+1) + '.' + this.state.year;
+    this.setState({
+      activeDate: new Date(this.state.year, this.state.month, day),
+    });
     this.props.onDateSelect(d);
-    // if (this.props.onClose) {
-    //   this.props.onClose();
-    // }
+  }
+
+  // set the current hoving element
+  setHoverDate(e) {
+    let day = e.target.firstChild.nodeValue;
+    this.setState({
+      hoverDate: day,
+    });
   }
 
   getMonthName(num) {
@@ -172,27 +174,31 @@ class Calendar extends Component {
         </div>
         <div className="calendar-weekdays">
           <div className='day-list'>
-            <li>Mon</li>
-            <li>Tue</li>
-            <li>Wed</li>
-            <li>Thu</li>
-            <li>Fri</li>
-            <li>Sat</li>
-            <li>Sun</li>
+            <li>Mo</li>
+            <li>Tu</li>
+            <li>We</li>
+            <li>Th</li>
+            <li>Fr</li>
+            <li>Sa</li>
+            <li>Su</li>
           </div>
         </div>
         <div className="days">
           <div className='day-list'>
-            {this.state.days.pre.map((day, index) => (<li className='pre' key={`pre_${day}`}>{day}</li>))}
-            {this.state.days.current.map((day, index) => {
+            {this.getDays(this.state.month, this.state.year).pre.map((day, index) => <DayElement {...this.state} extraClass='pre' key={`pre_${day}`} onHover={this.setHoverDate} day={day} /> )}
+            {this.getDays(this.state.month, this.state.year).current.map((day, index) => {
+              const activeDate = this.state.activeDate;
               const today = new Date();
               let extraClass = '';
-              if (this.state.year===today.getFullYear() && this.state.month===today.getMonth() && day===today.getDate()) {
-                extraClass += 'today';
+              // if smaller than today, render a before li
+              if (this.state.year===today.getFullYear() && this.state.month===today.getMonth() && day<today.getDate()) {
+                return <DayElement {...this.state} extraClass='before' key={`current${day}`} onHover={this.setHoverDate} day={day} />
+              } else if (this.state.year===activeDate.getFullYear() && this.state.month===activeDate.getMonth() && day===activeDate.getDate()) {
+                extraClass += 'active';
               }
-              return <li className={`current ${extraClass}`} key={`current${day}`} onClick={this.onSelectDate}>{day}</li>
+              return <DayElement {...this.state} extraClass={`current ${extraClass}`} key={`current${day}`} onHover={this.setHoverDate} onClick={this.onSelectDate} day={day} />
             })}
-            {this.state.days.next.map((day, index) => (<li className='next' key={`next_${day}`}>{day}</li>))}
+            {this.getDays(this.state.month, this.state.year).next.map((day, index) => <DayElement extraClass='next' key={`next${day}`} onHover={this.setHoverDate} day={day} />)}
           </div>
         </div>
       </div>
@@ -201,4 +207,3 @@ class Calendar extends Component {
 }
 
 export default Calendar;
-
