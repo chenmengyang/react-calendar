@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import arrow_light from '../../assets/icon/arrow_light.svg'
 import arrow_dark from '../../assets/icon/arrow_dark.svg'
-import DayElement from './DayElement';
+import DayElement from './DayElement'
 import './RangeCalendar.scss'
 
 class RangeCalendar extends Component {
+
   static propTypes = {
     title: PropTypes.string,
     onDateSelect: PropTypes.func.isRequired,
