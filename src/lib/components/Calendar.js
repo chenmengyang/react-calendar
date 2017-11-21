@@ -165,16 +165,13 @@ class Calendar extends Component {
 
   render() {
 
-    let arrow_dark_url = 'https://firebasestorage.googleapis.com/v0/b/levi-uat.appspot.com/o/arrow_dark.svg?alt=media&token=b457228c-c6ac-424a-af4d-f8aeefbb5765';
-    let arrow_light_url = 'https://firebasestorage.googleapis.com/v0/b/levi-uat.appspot.com/o/arrow_light.svg?alt=media&token=da502196-2330-4b81-b1cf-b13c08c5c4b0';
-
     return (
       <div className='calendar'>
         {this.props.title && <p className="title">{this.props.title}</p>}
         <div className="calendar-head">
-          <div className='arrow left' style={{backgroundImage: `url(${this.isCurrentMon()?arrow_dark:arrow_light}?w=1600)`}} onClick={this.monthMinus}></div>
+          <div className='arrow left' style={{backgroundImage: `url(${this.isCurrentMon()?arrow_dark:arrow_light})`}} onClick={this.monthMinus}></div>
           <div className="mon">{this.getMonthName(this.state.month) + ' ' + this.state.year}</div>
-          <div className='arrow right' style={{backgroundImage: `url(${arrow_light}?w=1600)`}} onClick={this.monthAdd}></div>
+          <div className='arrow right' style={{backgroundImage: `url(${arrow_light})`}} onClick={this.monthAdd}></div>
         </div>
         <div className="calendar-weekdays">
           <div className='day-list'>

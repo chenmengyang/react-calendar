@@ -9,7 +9,8 @@ class RangeCalendar extends Component {
 
   static propTypes = {
     title: PropTypes.string,
-    onDateSelect: PropTypes.func.isRequired,
+    onRangeSelect: PropTypes.func.isRequired,
+    onClose: PropTypes.func,
     type: PropTypes.string,
   }
 
@@ -24,6 +25,8 @@ class RangeCalendar extends Component {
     this.getNextCalendar = this.getNextCalendar.bind(this);
     this.checkRange = this.checkRange.bind(this);
     this.dateEqual = this.dateEqual.bind(this);
+    this.onApply = this.onApply.bind(this);
+    this.onCancel = this.onCancel.bind(this);
     this.state = {
       year: 0,
       month: 0,
@@ -111,6 +114,17 @@ class RangeCalendar extends Component {
         month: prevState.month + 1,
       }));
     }
+  }
+
+  onCancel() {
+    this.props.onClose();
+  }
+
+  onApply() {
+    const from = this.state.activeRange.from? ( this.state.activeRange.from.getDate() + '.' + (this.state.activeRange.from.getMonth()+1) + '.' + this.state.activeRange.from.getFullYear()) : null;
+    const to = this.state.activeRange.to? ( this.state.activeRange.to.getDate() + '.' + (this.state.activeRange.to.getMonth()+1) + '.' + this.state.activeRange.to.getFullYear()) : null;
+    // console.log(`this.state.activeRange.from is ${from}, this.state.activeRange.to is ${to}`);    
+    this.props.onRangeSelect(from, to);
   }
 
   onSelectDate(e, calendar) {
@@ -321,8 +335,8 @@ class RangeCalendar extends Component {
             </div>
           </div>
         </div>
-        <div className="button cancel">Cancle</div>
-        <div className="button apply">Apply</div>
+        <div className="button cancel" onClick={this.onCancel}>Cancle</div>
+        <div className="button apply" onClick={this.onApply}>Apply</div>
       </div>
     )
   }

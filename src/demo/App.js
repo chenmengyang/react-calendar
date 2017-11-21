@@ -6,7 +6,7 @@ const App = () => (
   <div className='app'>
     <Calendar onDateSelect={()=>{}} />
     <div className="sep"></div>
-    <RangeCalendar onDateSelect={()=>{}} />
+    <RangeCalendar onRangeSelect={()=>{}} />
   </div>
 );
 
