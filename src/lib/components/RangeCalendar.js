@@ -117,6 +117,13 @@ class RangeCalendar extends Component {
   }
 
   onCancel() {
+    this.setState({
+      activeRange: {
+        from: new Date(),
+        to: null,
+      },
+      hoverDate: new Date(1901,0,1)
+    });
     this.props.onClose();
   }
 

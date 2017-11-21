@@ -1,6 +1,6 @@
 div.rangecalendar {
-    height: 380px;
-    width: 700px;
+    height: 650px;
+    width: 300px;
     position: relative;
     div.button {
         position: absolute;
@@ -17,18 +17,16 @@ div.rangecalendar {
     }
     div.subcalendar {
         position: absolute;
-        top: 0;
+        width: 100%;
         &.current {
-            left: 0;
+            top: 0;
         }
         &.next {
-            right: 0;
+            top: 45%;
         }
-        display: inline-block;
         font-size: 10px;
-        // min-height: 340px;
-        height: 100%;
-        width: 340px;
+        height: 45%;
+        // width: 340px;
         div.calendar-head {
             margin-top: 31px;
             margin-bottom: 17px;
@@ -39,7 +37,7 @@ div.rangecalendar {
             position: absolute;
             letter-spacing: 1px;
             line-height: 22px;
-            font-size: 1.8em;
+            font-size: 1.6em;
             text-align: center;
             color: #0092C8;
             text-transform: uppercase;
@@ -81,7 +79,7 @@ div.rangecalendar {
         }
         div.day-list {
             width: 100%;
-            font-size: 1.4em;
+            font-size: 1.3em;
             display: flex;
             flex-flow: row wrap;
             justify-content: space-around;
@@ -122,7 +120,7 @@ div.rangecalendar {
                         border-bottom-left-radius: 50%;
                         color: white;
                         span.hovering {
-                          background-color: #337ab7 !important;
+                        background-color: #337ab7 !important;
                         }
                     }
                     &.to {
@@ -131,7 +129,7 @@ div.rangecalendar {
                         border-bottom-right-radius: 50%;
                         color: white;
                         span.hovering {
-                          background-color: #337ab7 !important;
+                        background-color: #337ab7 !important;
                         }
                     }
                     &.between {
@@ -143,12 +141,42 @@ div.rangecalendar {
         }
     }
 }
-    
+
+@media only screen and (min-width: 998px) {
+    div.rangecalendar {
+        height: 380px;
+        width: 620px;
+        div.subcalendar {
+            width: 50%;
+            &.current {
+                left: 0;
+            }
+            &.next {
+                top: 0;
+                right: 0;
+            }
+        }
+    }
+}
+
 @media only screen and (min-width: 1200px) {
-    div.calendar {
-        div.calendar-head {
-            div.mon {
-            font-size: 1.9em;
+    div.rangecalendar {
+        height: 380px;
+        width: 700px;
+        div.subcalendar {
+            font-size: 10px;
+            height: 100%;
+            width: 340px;
+            div.calendar-head {
+                div.mon {
+                    font-size: 1.9em;
+                }
+            }
+            p.title {
+                font-size: 1em;
+            }
+            div.day-list {
+                font-size: 1.4em;
             }
         }
     }
