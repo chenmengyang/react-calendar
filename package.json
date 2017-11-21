@@ -1,6 +1,6 @@
 {
   "name": "react-calendar-cool",
-  "version": "1.0.4",
+  "version": "1.0.9",
   "description": "calendar component use in React",
   "main": "build/index.js",
   "files": [
@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "build": "nodYe scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },
   "repository": {

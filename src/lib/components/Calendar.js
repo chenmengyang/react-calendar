@@ -164,6 +164,10 @@ class Calendar extends Component {
   }
 
   render() {
+
+    let arrow_dark_url = 'https://firebasestorage.googleapis.com/v0/b/levi-uat.appspot.com/o/arrow_dark.svg?alt=media&token=b457228c-c6ac-424a-af4d-f8aeefbb5765';
+    let arrow_light_url = 'https://firebasestorage.googleapis.com/v0/b/levi-uat.appspot.com/o/arrow_light.svg?alt=media&token=da502196-2330-4b81-b1cf-b13c08c5c4b0';
+
     return (
       <div className='calendar'>
         {this.props.title && <p className="title">{this.props.title}</p>}

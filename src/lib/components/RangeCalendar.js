@@ -255,7 +255,7 @@ class RangeCalendar extends Component {
         <div className='subcalendar current'>
           {this.props.title && <p className="title">{this.props.title}</p>}
           <div className="calendar-head">
-            <div className='arrow left' style={{backgroundImage: `url(${this.isCurrentMon()?arrow_dark:arrow_light}?w=1600)`}} onClick={this.monthMinus}></div>
+            <div className='arrow left' style={{backgroundImage: `url(${this.isCurrentMon()?arrow_dark:arrow_light})`}} onClick={this.monthMinus}></div>
             <div className="mon">{this.getMonthName(this.state.month) + ' ' + this.state.year}</div>
           </div>
           <div className="calendar-weekdays">
@@ -291,7 +291,7 @@ class RangeCalendar extends Component {
           {this.props.title && <p className="title">{this.props.title}</p>}
           <div className="calendar-head">
             <div className="mon">{this.getMonthName(this.getNextCalendar().month) + ' ' + this.getNextCalendar().year}</div>
-            <div className='arrow right' style={{backgroundImage: `url(${arrow_light}?w=1600)`}} onClick={this.monthAdd}></div>
+            <div className='arrow right' style={{backgroundImage: `url(${arrow_light})`}} onClick={this.monthAdd}></div>
           </div>
           <div className="calendar-weekdays">
             <div className='day-list'>
