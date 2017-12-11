@@ -4,7 +4,7 @@ import './App.scss'
 
 const App = () => (
   <div className='app'>
-    <Calendar onDateSelect={()=>{}} />
+    <Calendar date={new Date(2018,1,1)} onDateSelect={()=>{}} />
     <div className="sep"></div>
     <RangeCalendar onRangeSelect={()=>{}} onClose={()=>{}} />
   </div>

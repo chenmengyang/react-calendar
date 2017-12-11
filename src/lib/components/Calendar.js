@@ -9,6 +9,7 @@ class Calendar extends Component {
   static propTypes = {
     title: PropTypes.string,
     onDateSelect: PropTypes.func.isRequired,
+    date: PropTypes.any,
     type: PropTypes.string,
   }
 
@@ -28,12 +29,10 @@ class Calendar extends Component {
   }
 
   componentDidMount() {
-    const d = new Date();
+    const d = this.props.date ? this.props.date : new Date();
     const year = d.getFullYear();
     const month = d.getMonth();
-    const activeDate = new Date();
-    const numofDays = (new Date(year, month, 0)).getDate();
-    const days = this.getDays(month, year);
+    const activeDate = d;
     this.setState({
       year,
       month,
